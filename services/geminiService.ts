@@ -1,4 +1,3 @@
-import { GoogleGenAI, Type } from "@google/genai";
 import { ProposalData } from "../types";
 
 export const generateProposalContent = async (
@@ -9,6 +8,7 @@ export const generateProposalContent = async (
     throw new Error("API Key not found");
   }
 
+  const { GoogleGenAI, Type } = await import("@google/genai");
   const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
   const response = await ai.models.generateContent({
